@@ -1,0 +1,23 @@
+{{yield}}
+<div class="transparent_overlay_box">
+    {{#if reg_mode}}
+        <div class="form-group">
+            {{input type="text" value=name placeholder="Имя" class="form-control"}}
+        </div>
+
+    {{/if}}
+    <div class="form-group">
+        {{input type="text" value=email placeholder="Email" class="form-control"}}
+    </div>
+    <div class="form-group">
+        {{input type="pass" value=pass placeholder="Пароль" class="form-control"}}
+    </div>
+    {{#if reg_mode}}
+
+        <button {{action 'register'}}class="btn ntn-primary">Регистрация</button>
+        <span>или <a href="" {{action 'changeMode'}}>Войти</a> </span>
+    {{else}}
+        <button {{action 'login'}}class="btn ntn-primary">Войти</button>
+        <span>или <a href="" {{action 'changeMode'}}>Зарегистрироваться</a> </span>
+    {{/if}}
+</div>
