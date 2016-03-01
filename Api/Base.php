@@ -14,9 +14,9 @@ class Base
 {
     private $params = array(
         'host' => 'localhost',
-        'username' => 'root',
-        'password' => '',
-        'dbname' => 'video',
+        'username' => 'u0164525_default',
+        'password' => 'LOK36skype',
+        'dbname' => 'u0164525_default',
         'charset' => 'utf8',
 //        '_debug' => true,
         '_prefix' => 'p_',
