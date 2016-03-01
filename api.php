@@ -28,8 +28,11 @@ switch ($_SERVER['REQUEST_METHOD']) {
         switch ($object) {
             case 'videos':
                 $obj = new \Api\Videos();
-                if($id)
+                if ($id)
                     $res = $obj->getById($id);
+                else {
+                    $res = $obj->get();
+                }
                 break;
         }
         break;
@@ -38,11 +41,11 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $fields = json_decode($entityBody, true);
         $data = $fields['data'];
 
-        switch($object){
+        switch ($object) {
             case 'videos':
                 $obj = new \Api\Videos();
                 $res = $obj->edit($data);
-              break;
+                break;
         }
         break;
     case 'POST':

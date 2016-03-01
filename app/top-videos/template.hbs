@@ -1,0 +1,8 @@
+{{yield}}
+<div class="row">
+    {{#each videos as |video|}}
+        <div class="col-md-3">
+            {{video-preview video=video}}
+        </div>
+    {{/each}}
+</div>

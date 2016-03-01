@@ -1,6 +1,9 @@
 {{outlet}}
 <div class="main" style="z-index: 1; position: relative;">
-    {{index-login-form}}
+    <div class="intro_card">
+        {{index-login-form}}
+    </div>
+    {{top-videos videos=model.top_videos}}
 </div>
 <div class="video_wrapper">
     <video class="video js-background_video " autoplay muted loop>
