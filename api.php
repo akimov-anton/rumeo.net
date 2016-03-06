@@ -34,6 +34,10 @@ switch ($_SERVER['REQUEST_METHOD']) {
                     $res = $obj->get();
                 }
                 break;
+            case 'video-categories':
+                $obj = new \Api\VideoCategory();
+                $res = $obj->getAll();
+                break;
         }
         break;
     case 'PATCH':
