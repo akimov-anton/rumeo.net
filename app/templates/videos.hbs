@@ -1,1 +1,7 @@
 {{outlet}}
+
+{{#if model.category}}
+    <h2>Категории / {{model.category.name}}
+        {{link-to 'Добавить видео' 'add' (query-params category=model.category.id) class="btn btn-primary"}}
+    </h2>
+{{/if}}

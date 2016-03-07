@@ -13,4 +13,32 @@
   button:hover{
     background: #5ec4ff;
   }
+  .category_menu{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.8;
+  }
+
+  .item_desc {
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    //background-color: rgba(0,0,0,.5);
+    padding: 64px 4% 0;
+  }
+  .item_desc.all_cat_grid {
+    //padding: 18px 4% 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .category_cell_title_link{
+    color: white;
+    text-decoration: none;
+  }
 }

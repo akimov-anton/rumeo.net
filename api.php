@@ -35,8 +35,14 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 }
                 break;
             case 'video-categories':
-                $obj = new \Api\VideoCategory();
-                $res = $obj->getAll();
+                if($id){
+                    $obj = new \Api\VideoCategory();
+                    $res = $obj->getById($id);
+                }
+                else{
+                    $obj = new \Api\VideoCategory();
+                    $res = $obj->getAll();
+                }
                 break;
         }
         break;

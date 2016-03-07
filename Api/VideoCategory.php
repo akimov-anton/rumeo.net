@@ -29,4 +29,18 @@ class VideoCategory extends Base
         return $res;
     }
 
+    public function getById($id){
+        $pattern = 'SELECT * FROM `video_categories` WHERE id = ?scalar';
+        $res = $this->db->query($pattern, [$id])->row();
+        return [
+            'data' => [
+                'id' => $id,
+                'type' => 'video-category',
+                'attributes' => [
+                    'name' => $res['name']
+                ]
+            ]
+        ];
+    }
+
 }

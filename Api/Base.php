@@ -18,7 +18,7 @@ class Base
         'password' => 'LOK36skype',
         'dbname' => 'u0164525_default',
         'charset' => 'utf8',
-        '_debug' => true,
+//        '_debug' => true,
         '_prefix' => 'p_',
     );
     protected $db;
