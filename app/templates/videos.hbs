@@ -5,3 +5,11 @@
         {{link-to 'Добавить видео' 'add' (query-params category=model.category.id) class="btn btn-primary"}}
     </h2>
 {{/if}}
+<div class="row">
+    {{#each model.videos as |video|}}
+        <div class="col-md-3" style="padding-right: 0;">
+            {{video-preview video=video}}
+        </div>
+    {{/each}}
+
+</div>

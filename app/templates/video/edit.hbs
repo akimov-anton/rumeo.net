@@ -1,0 +1,15 @@
+{{outlet}}
+
+<h1>Редактирование видео!</h1>
+<div class="form-group">
+    {{textarea value=model.video.source class="form-control"}}
+</div>
+<div class="form-group">
+    {{ember-selectize
+    content=model.categories
+    selection=model.video.category
+    optionLabelPath="content.name"
+    optionValuePath="content.id"
+    placeholder="Категория"}}
+</div>
+<button {{action 'edit' model.video.id}}class="btn btn-primary">Сохранить</button>

@@ -1,15 +1,26 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-    //model(){
-    //  return this.store.createRecord('video')
-    //},
+    model(params, transition){
+        var category = transition.queryParams.category;
+
+        return {
+            category: this.store.peekRecord('video-category', category),
+            categories: this.store.peekAll('video-category')
+        }
+    },
     actions: {
-        add(content){
+        add(source){
             var video = this.store.createRecord('video');
-            video.set('content', content);
+            video.set('source', source);
+            //console.log(this.modelFor('add').category);
+            //return;
+            if(this.modelFor('add').category){
+                var category = this.store.peekRecord('video-category', this.modelFor('add').category.get('id'));
+                video.set('category', category);
+            }
             video.save().then(video=> {
-                this.transitionTo('videos.video', video.get('id'));
+                this.transitionTo('video', video.get('id'));
             });
         }
     }

@@ -12,8 +12,10 @@ export default Ember.Route.extend({
         if(queryParams.category){
             category = this.store.findRecord('video-category', queryParams.category);
         }
+        var videos = this.store.query('video', {category: queryParams.category});
         return {
-            category: category
+            category: category,
+            videos: videos
         }
     }
 });

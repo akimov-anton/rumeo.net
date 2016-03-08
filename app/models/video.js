@@ -1,6 +1,6 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  content: DS.attr('string'),
+  source: DS.attr('string'),
   category: DS.belongsTo('video-category')
 });

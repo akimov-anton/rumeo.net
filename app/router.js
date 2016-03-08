@@ -8,9 +8,9 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('add');
   this.route('videos', function() {
-    this.route('video', {path: '/:id'}, function() {
-      this.route('edit');
-    });
+  });
+  this.route('video', {path: 'videos/:id'}, function() {
+    this.route('edit');
   });
 });
 

@@ -1,23 +1,29 @@
 {{yield}}
 
 
+<div class="logo" style="float: left;">
+    <div style="font-size: 40px; margin-left: 10px;">{{link-to 'rumeo' 'index'}}</div>
+</div>
 
 {{#if active}}
     <div class="category_menu transparent_overlay_box col-md-5"
-         style="margin-left: 63px; color: white; position: absolute">
+         style="margin-left: 208px; color: white; position: absolute">
 
 
         {{#each categories as |category|}}
 
             <div {{action 'clicked'}} class="category col-sm-3" style="height: 150px; width: 200px;">
-                <div class="item_desc all_cat_grid">
+
                     {{#link-to 'videos' (query-params category=category.id)  class="category_cell_title_link"}}
+                    <div class="item_desc all_cat_grid" style="">
                         <p class="title">{{category.name}}</p>
+                    </div>
                     {{/link-to}}
                 </div>
-            </div>
+
         {{/each}}
     </div>
 {{/if}}
 
 <button {{action 'menuToggle'}} class="btn btn-primary pull-left">Меню</button>
+{{link-to 'Добавить видео' 'add' class="btn btn-primary pull-right"}}

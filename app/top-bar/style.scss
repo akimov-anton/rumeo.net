@@ -1,16 +1,20 @@
 & {
   position: relative;
+  border-bottom: 1px solid #D0D8DB;
+  background-color: #EEF1F2;
+
   z-index: 999;
   font-size: 14px;
   //border-bottom: 1px solid #D0D8DB;
   //background-color: #EEF1F2;
   height: 60px;
-  margin: 12px;
-  button {
+  //margin: 12px;
+  .btn {
+    margin: 12px;
     background: #5ec4ff;
     border: none;
   }
-  button:hover{
+  .btn:hover{
     background: #5ec4ff;
   }
   .category_menu{
@@ -32,10 +36,15 @@
   }
   .item_desc.all_cat_grid {
     //padding: 18px 4% 0;
+    background-color: #222222;
+    margin: 7px;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+    &:hover{
+      background-color: #495c68;
+    }
   }
   .category_cell_title_link{
     color: white;

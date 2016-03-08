@@ -22,7 +22,7 @@ $res = [];
 //    $id = $id[0];
 //}
 $id = count(explode('/', $request)) == 4 ? explode('?', $exploded_request[3])[0] : null;
-
+$params = $_GET;
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
         switch ($object) {
@@ -31,7 +31,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 if ($id)
                     $res = $obj->getById($id);
                 else {
-                    $res = $obj->get();
+                    $res = $obj->get($params);
                 }
                 break;
             case 'video-categories':
@@ -67,7 +67,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         switch ($object) {
             case 'videos':
                 $obj = new \Api\Videos();
-                $res = $obj->add([$attributes['content']]);
+                $res = $obj->add($data);
 //                $pattern = 'INSERT INTO `videos` SET `content` = ?string';
 //                $query_data = [$attributes['content']];
 //                $db->query($pattern, $query_data);
