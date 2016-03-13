@@ -14,16 +14,19 @@
 
             <div {{action 'clicked'}} class="category col-sm-3" style="height: 150px; width: 200px;">
 
-                    {{#link-to 'videos' (query-params category=category.id)  class="category_cell_title_link"}}
+                {{#link-to 'videos' (query-params category=category.id)  class="category_cell_title_link"}}
                     <div class="item_desc all_cat_grid" style="">
                         <p class="title">{{category.name}}</p>
                     </div>
-                    {{/link-to}}
-                </div>
+                {{/link-to}}
+            </div>
 
         {{/each}}
     </div>
 {{/if}}
 
 <button {{action 'menuToggle'}} class="btn btn-primary pull-left">Меню</button>
+{{#link-to 'categories'}}
+    <div style="font-size: 20px; line-height: 3; display: inline;">Категории</div>
+{{/link-to}}
 {{link-to 'Добавить видео' 'add' class="btn btn-primary pull-right"}}

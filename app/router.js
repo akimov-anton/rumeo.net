@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('video', {path: 'videos/:id'}, function() {
     this.route('edit');
   });
+  this.route('categories');
 });
 
 export default Router;
