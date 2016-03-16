@@ -5,7 +5,28 @@
     </div>
     <h2>Самые популярные:</h2>
     {{top-videos videos=model.top_videos}}
+    <h1>Категории</h1>
+
+    <div class="row" style="margin: 0 auto; width: 900px;">
+        {{#each model.categories as |category|}}
+            <div class="category col-md-3" style="height: 150px; min-width: 300px;">
+
+                {{#link-to 'videos' (query-params category=category.id)  class="category_cell_title_link"}}
+                    <div class="item_desc all_cat_grid" style="">
+                        <p class="title" style="font-size: 25px;">{{category.name}}</p>
+                    </div>
+                {{/link-to}}
+            </div>
+        {{/each}}
+    </div>
+
 </div>
+<footer style="padding: 25px 30px; z-index: 1; position: relative; border-bottom: 1px solid #D0D8DB; width: 100%;
+    background-color: #EEF1F2;">
+    <section>
+        Footer
+    </section>
+</footer>
 <div class="video_wrapper">
     <video class="video js-background_video " autoplay muted loop>
         <source src="//vimeo-hp-videos.global.ssl.fastly.net/5/5-vp9.webm" type="video/webm; codecs=vp9">
@@ -13,3 +34,5 @@
         <source src="//vimeo-hp-videos.global.ssl.fastly.net/5/5.mp4" type="video/mp4">
     </video>
 </div>
+
+
