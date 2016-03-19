@@ -13,6 +13,10 @@ export default Ember.Route.extend({
         add(source){
             var video = this.store.createRecord('video');
             video.set('source', source);
+            var hash = video.get('youtubeId');
+            if(hash){
+                video.set('youtubeHash', hash);
+            }
             //console.log(this.modelFor('add').category);
             //return;
             if(this.modelFor('add').category){

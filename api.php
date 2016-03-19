@@ -31,15 +31,17 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 if ($id)
                     $res = $obj->getById($id);
                 else {
-                    $res = $obj->get($params);
+                    if (!empty($params['top']))
+                        $res = $obj->getTopVideos();
+                    else
+                        $res = $obj->get($params);
                 }
                 break;
             case 'video-categories':
-                if($id){
+                if ($id) {
                     $obj = new \Api\VideoCategory();
                     $res = $obj->getById($id);
-                }
-                else{
+                } else {
                     $obj = new \Api\VideoCategory();
                     $res = $obj->getAll();
                 }

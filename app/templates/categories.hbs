@@ -2,7 +2,7 @@
 <h1>Категории</h1>
 <div class="row">
     {{#each model as |category|}}
-        <div class="category col-sm-2" style="height: 150px; min-width: 300px;">
+        <div class="category col-sm-2" style="height: 150px; min-width: 300px; ">
 
             {{#link-to 'videos' (query-params category=category.id)  class="category_cell_title_link"}}
                 <div class="item_desc all_cat_grid" style="">

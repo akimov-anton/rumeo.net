@@ -1,6 +1,9 @@
 
+{{#if model.video.title}}
+    <h2>{{model.video.title}}</h2>
+{{/if}}
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-8" style="height: 460px;">
         {{{model.video.source}}}
     </div>
     <div class="col-sm-3">
