@@ -1,6 +1,10 @@
 // ember-component-css
 @import "pod-styles";
 
+body {
+  background-color: #f1f1f1;
+}
+
 .video {
   min-height: 715px;
   min-width: 100%;

@@ -1,15 +1,10 @@
-
-{{#if model.video.title}}
-    <h2>{{model.video.title}}</h2>
-{{/if}}
-<div class="row">
-    <div class="col-md-8" style="height: 460px;">
-        {{{model.video.source}}}
-    </div>
-    <div class="col-sm-3">
-
-    </div>
+<div class="col-md-8">
+    {{video-content video = model.video}}
+    {{link-to 'Редактировать' 'video.edit' model.video.id class="btn btn-primary"}}
+    {{outlet}}
+</div>
+<div class="col-md-4">
+    {{videos-recommended-bar category_id = model.video.category.id}}
 </div>
 <br>
-{{link-to 'Редактировать' 'video.edit' model.video.id class="btn btn-primary"}}
-{{outlet}}
+
