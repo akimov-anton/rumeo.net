@@ -13,6 +13,7 @@
 
                 {{#link-to 'videos' (query-params category=category.id)  class="category_cell_title_link"}}
                     <div class="item_desc all_cat_grid" style="">
+                        <i class="category_sprite {{category-icon category.id}}"></i>
                         <p class="title" style="font-size: 25px;">{{category.name}}</p>
                     </div>
                 {{/link-to}}

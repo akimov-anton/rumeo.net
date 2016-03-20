@@ -26,8 +26,8 @@ class Videos extends Base
         $attributes = $params['attributes'];
         $source = $attributes['source'];
         $relationships = $params['relationships'];
-        $hash = $attributes['youtubeHash'];
-        $title = null;
+        $hash = $attributes['youtube-hash'];
+        $title = '';
         if($hash){
             $title = $this->getYoutubeTitle($hash);
         }
