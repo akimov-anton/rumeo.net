@@ -2,7 +2,9 @@
 
 {{#if model.category}}
     <h2>Категории / {{model.category.name}}
-        {{link-to 'Добавить видео' 'add' (query-params category=model.category.id) class="btn btn-primary"}}
+        {{#if (can 'add videos')}}
+            {{link-to 'Добавить видео' 'add' (query-params category=model.category.id) class="btn btn-primary"}}
+        {{/if}}
     </h2>
 {{/if}}
 <div class="row">

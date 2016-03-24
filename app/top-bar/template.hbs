@@ -29,4 +29,12 @@
 {{#link-to 'categories'}}
     <div style="font-size: 20px; line-height: 3; display: inline;">Категории</div>
 {{/link-to}}
-{{link-to 'Добавить видео' 'add' class="btn btn-primary pull-right"}}
+{{#if user }}
+    <button {{action 'logout'}}class="btn btn-primary pull-right">Выйти</button>
+    {{#if (can 'add videos')}}
+        {{link-to 'Добавить видео' 'add' class="btn btn-primary pull-right"}}
+    {{/if}}
+{{else}}
+    {{link-to 'Войти' 'index.login' class="btn btn-primary pull-right"}}
+{{/if}}
+

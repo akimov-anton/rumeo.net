@@ -7,17 +7,22 @@
 
     {{/if}}
     <div class="form-group">
-        {{input type="text" value=email placeholder="Email" class="form-control"}}
+        {{input type="text" value=user.name placeholder="Имя" class="form-control"}}
     </div>
     <div class="form-group">
-        {{input type="pass" value=pass placeholder="Пароль" class="form-control"}}
+        {{input type="password" value=user.pass placeholder="Пароль" class="form-control"}}
     </div>
+    {{#each user.errors.secure as |error|}}
+        <div class="alert alert-danger">
+            <strong>{{error.message}}</strong>
+        </div>
+    {{/each}}
     {{#if reg_mode}}
 
         <button {{action 'register'}}class="btn ntn-primary">Регистрация</button>
         <span>или <a href="" {{action 'changeMode'}}>Войти</a> </span>
     {{else}}
         <button {{action 'login'}}class="btn ntn-primary">Войти</button>
-        <span>или <a href="" {{action 'changeMode'}}>Зарегистрироваться</a> </span>
+        <!--<span>или <a href="" {{!action 'changeMode'}}>Зарегистрироваться</a> </span>-->
     {{/if}}
 </div>

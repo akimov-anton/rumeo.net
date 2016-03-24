@@ -6,6 +6,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('index', {path: '/'}, function(){
+    this.route('login');
+  });
   this.route('add');
   this.route('videos', function() {
   });
@@ -13,6 +16,7 @@ Router.map(function() {
     this.route('edit');
   });
   this.route('categories');
+  //this.route('login');
 });
 
 export default Router;
