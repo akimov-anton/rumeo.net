@@ -5,13 +5,13 @@ export default Ability.extend({
     session: Ember.inject.service(),
     store: Ember.inject.service(),
     user: Ember.computed('session', function () {
-        return this.get('session').getUser();
+        return this.get('session').get('user');
     }),
-    canAdd: Ember.computed('user.role', function () {
+    canAdd: Ember.computed('session.user.role', function () {
         if (this.get('user'))
             return this.get('user').get('role') == 1;
     }),
-    canEdit: Ember.computed('user.role', function () {
+    canEdit: Ember.computed('session.user.role', function () {
         if (this.get('user'))
             return this.get('user').get('role') == 1;
     }),

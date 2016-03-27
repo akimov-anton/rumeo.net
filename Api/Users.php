@@ -23,7 +23,6 @@ class Users extends Base
 //        $userInfo = ifetch_row_ac(iquery('prtnr-sel', $sql));
 
         $result = [];
-
         if ($userInfo && $userInfo['pass'] == $hash) {
             $ua_hash = md5($_SERVER['HTTP_USER_AGENT'] . 'Gjrtvjy');
             $hash = md5(md5($login . $ua_hash)) . sprintf('%04d', $userInfo['id']);

@@ -7,6 +7,11 @@ export default Ember.Route.extend({
     },
     actions: {
         login(user){
+            user.get('errors').clear();
+            if(!user.get('pass') || !user.get('name')){
+                user.get('errors').add('secure', 'Введите данные');
+                return;
+            }
             this.store.queryRecord('user', {login: user.get('name'), pass: user.get('pass')}).then(valid_user => {
                 console.log('THEN');
                 this.get('session').setItem('_hash', valid_user.get('hash'));
@@ -14,7 +19,7 @@ export default Ember.Route.extend({
                 this.transitionTo('index');
             }).catch(error => {
                 console.log(error);
-                user.get('errors').clear();
+
                 user.get('errors').add('secure', 'Неправильный логин или пароль');
             });
         }
