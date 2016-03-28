@@ -1,13 +1,14 @@
 <div class="col-md-8">
     {{video-content video = model.video}}
-        {{#if (can 'edit videos')}}
-            {{link-to 'Редактировать' 'video.edit' model.video.id class="btn btn-primary"}}
-        {{/if}}
+    {{#if (can 'edit videos')}}
+        {{link-to 'Редактировать' 'video.edit' model.video.id class="btn btn-primary"}}
+    {{/if}}
+
     {{outlet}}
 </div>
 <div class="col-md-3 block">
     <!--<div class="block">-->
-        {{videos-recommended-bar category_id = model.video.category.id}}
+    {{videos-recommended-bar category_id = model.video.category.id}}
     <!--</div>-->
 </div>
 <br>

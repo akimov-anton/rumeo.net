@@ -11,6 +11,15 @@
 
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/video-site.css">
+    <!-- Put this script tag to the <head> of your page -->
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?121"></script>
+
+    <script type="text/javascript">
+      VK.init({apiId: 5381073, onlyWidgets: true});
+    </script>
+
+    <script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+    <script src="https://yastatic.net/share2/share.js"></script>
 
     {{content-for 'head-footer'}}
   </head>
