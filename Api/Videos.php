@@ -12,7 +12,8 @@ use Api\Base;
 
 class Videos extends Base
 {
-    private function getYoutubeTitle($video_id){
+    private function getYoutubeTitle($video_id)
+    {
         $html = file_get_contents("http://www.youtube.com/watch?v=$video_id");
         $dom = new \DOMDocument();
         $ies = libxml_use_internal_errors(true);
@@ -28,7 +29,7 @@ class Videos extends Base
         $relationships = $params['relationships'];
         $hash = $attributes['youtube-hash'];
         $title = '';
-        if($hash){
+        if ($hash) {
             $title = $this->getYoutubeTitle($hash);
         }
 
@@ -74,14 +75,19 @@ class Videos extends Base
     public function get($params)
     {
         $res = [];
+        $page = !empty($params['page']) && is_numeric($params['page']) ? $params['page'] : 1;
+        $limit = !empty($params['limit']) && is_numeric($params['limit']) ? $params['limit'] : 10;
+        $offset = is_numeric($limit) && is_numeric($page) ? ($page - 1) * $limit : 0;
         $where = ['1=1'];
         $category = $params['category'];
         if (!empty($category)) {
             $where[] = '`category_id` = ' . $category;
         }
         $where = join(' AND ', $where);
-        $pattern = 'SELECT * FROM `videos` WHERE ' . $where . ' LIMIT 10';
-        $rows = $this->db->query($pattern, [])->assoc();
+        $pattern = 'SELECT * FROM `videos` WHERE ' . $where . ' LIMIT ?i, ?i';
+//        var_dump($pattern);
+//        die();
+        $rows = $this->db->query($pattern, [$offset, $limit])->assoc();
 //        var_dump($res);
 //        die();
         foreach ($rows as $row) {
@@ -97,7 +103,8 @@ class Videos extends Base
         return $res;
     }
 
-    public function getTopVideos(){
+    public function getTopVideos()
+    {
         $res = [];
         $where = ['1=1'];
         $where = join(' AND ', $where);
@@ -127,7 +134,7 @@ class Videos extends Base
         $content = $attributes['source'];
         $hash = $attributes['youtube-hash'];
         $title = null;
-        if($hash){
+        if ($hash) {
             $title = $this->getYoutubeTitle($hash);
         }
         $pattern = 'UPDATE `videos` SET content = ?, category_id = ?i, `title` = ? WHERE id = ?scalar';

@@ -7,11 +7,11 @@
         {{/if}}
     </h2>
 {{/if}}
-<div class="row">
+{{#endless-scrolling-blocks object_type = 'video' param_key = 'category' param_value = model.category.id}}
     {{#each model.videos as |video|}}
         <div class="col-md-3" style="padding-right: 0;">
             {{video-preview video=video}}
         </div>
     {{/each}}
 
-</div>
+{{/endless-scrolling-blocks }}

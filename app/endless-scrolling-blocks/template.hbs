@@ -1,0 +1,9 @@
+<div class="row" id="endless_block">
+    {{yield}}
+    {{#each videos as |video|}}
+        <div class="col-md-3" style="padding-right: 0;">
+            {{video-preview video=video}}
+        </div>
+    {{/each}}
+
+</div>
