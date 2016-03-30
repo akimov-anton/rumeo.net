@@ -5,5 +5,10 @@
             {{video-preview video=video}}
         </div>
     {{/each}}
+    {{#if loading}}
+    <div class="col-md-3" style="padding-right: 0;">
+        <div class="loading"></div>
+    </div>
+    {{/if}}
 
 </div>

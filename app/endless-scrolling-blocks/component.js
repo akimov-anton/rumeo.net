@@ -7,18 +7,16 @@ export default Ember.Component.extend({
     videos: [],
     init(){
         this._super(...arguments);
+        this.get('videos').clear();
         var self = this;
         window.onscroll = function(){
             var d = document.body;
-            //console.log(d.scrollHeight);
-            //console.log(endless_block.clientHeight);
-            //console.log((endless_block.clientHeight + d.scrollTop) / d.scrollHeight);
-            //if (d.scrollHeight - d.scrollTop < 50)
-            //    console.log('end');
+            if (d.scrollTop + $(window).height() >= d.scrollHeight)
+                self.loadData();
         };
     },
-    click(){
-        //var self= this;
+    loadData(){
+        this.set('loading', true);
         this.incrementProperty('page', 1);
         var params = {};
         params[this.get('param_key')] = this.get('param_value');
@@ -30,16 +28,12 @@ export default Ember.Component.extend({
                     this.get('videos').pushObject(video);
                 });
             }
+            this.set('loading', false);
             console.log(videos.get('length'));
+        }).catch(error => {
+            this.set('loading', false);
         });
-
     },
     actions: {
-        //scroll(){
-        //    console.log('scroll');
-        //    var d = document.body;
-        //    if (d.clientHeight + d.scrollTop == d.scrollHeight)
-        //        console.log('end');
-        //}
     }
 });
