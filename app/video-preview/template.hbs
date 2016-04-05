@@ -1,8 +1,11 @@
 {{#link-to 'video' video.id}}
     <img src="{{video-image video.source}}">
+
     {{#if video.title}}
-        <span class="video_title">
-            {{video.title}}
-        </span>
+        <div class="item-title">
+            <div class="item-title-inner">
+                {{video.title}}
+            </div>
+        </div>
     {{/if}}
 {{/link-to}}
