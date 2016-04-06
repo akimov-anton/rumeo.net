@@ -1,15 +1,13 @@
 {{outlet}}
-<h1>Категории</h1>
-<div class="row">
-    {{#each model as |category|}}
-        <div class="category col-sm-2" style="height: 150px; min-width: 300px; ">
+<!--<h1>Категории</h1>-->
 
-            {{#link-to 'videos' (query-params category=category.id)  class="category_cell_title_link"}}
-                <div class="item_desc all_cat_grid" style="">
-                    <i class="category_sprite {{category-icon category.id}}"></i>
-                    <p class="title" style="font-size: 25px;">{{category.name}}</p>
-                </div>
-            {{/link-to}}
-        </div>
-    {{/each}}
+<div class="row">
+    <div class="col-md-10">
+        {{#each model as |category|}}
+            <h2>{{category.name}}</h2>
+            <div class="row">
+                {{video-category-preview category_id = category.id}}
+            </div>
+        {{/each}}
+    </div>
 </div>
