@@ -42,6 +42,9 @@ class Videos extends Base
 
     public function getById($id)
     {
+        $video_stats = new VideoStats();
+        $video_stats->increment($id);
+
         $pattern = 'SELECT * FROM `videos` WHERE id = ?scalar';
         $res = $this->db->query($pattern, [$id])->row();
 

@@ -18,10 +18,13 @@ export default Ember.Component.extend({
     loadData(){
         this.set('loading', true);
         this.incrementProperty('page', 1);
+        //console.log(this.get('param_key'));
+        //debugger;
         var params = {};
         params[this.get('param_key')] = this.get('param_value');
         params.page = this.get('page');
         params.limit = this.get('limit');
+        console.log(params);
         this.get('store').query(this.get('object_type'), params).then(videos => {
             if (videos && videos.get('length')) {
                 videos.forEach(video => {

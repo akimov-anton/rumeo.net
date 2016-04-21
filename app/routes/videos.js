@@ -15,6 +15,7 @@ export default Ember.Route.extend({
         var videos = this.store.query('video', {category: queryParams.category, limit: 15});
         return {
             category: category,
+            categoryId: queryParams.category,
             videos: videos
         }
     }
